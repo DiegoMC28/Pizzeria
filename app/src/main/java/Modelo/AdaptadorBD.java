@@ -97,7 +97,7 @@ public class AdaptadorBD extends SQLiteOpenHelper{
         SQLiteDatabase bbdd = this.getWritableDatabase();
         ArrayList<Pizza> listaPizzas = new ArrayList<Pizza>();
         Pizza pizza;
-        Cursor cursorUsuarios = bbdd.rawQuery("Select * from Pizza",null);
+        Cursor cursorPizza = bbdd.rawQuery("Select * from Pizza",null);
 
         insertarPizza("Queen BBQ", "Queso mozarella", "Salsa barbacoa", "Pollo", "Bacon", "");
         insertarPizza("Italian Carbonara", "Queso mozarella", "Nata", "Bacon", "Champiñones", "");
@@ -106,14 +106,14 @@ public class AdaptadorBD extends SQLiteOpenHelper{
         insertarPizza("Joseroni", "Queso mozarella", "Peperoni", "Carne picada", "Extra de queso", "");
         insertarPizza("Red Devil", "Queso mozarella", "Pimiento chili", "Guindilla", "Pimiento Habanero", "");
 
-        if(cursorUsuarios.moveToFirst()){
+        if(cursorPizza.moveToFirst()){
             do{
-                pizza = new Pizza(cursorUsuarios.getString(1), cursorUsuarios.getString(2), cursorUsuarios.getString(3), cursorUsuarios.getString(4),cursorUsuarios.getString(5),cursorUsuarios.getString(6));
+                pizza = new Pizza(cursorPizza.getString(1), cursorPizza.getString(2), cursorPizza.getString(3), cursorPizza.getString(4),cursorPizza.getString(5),cursorPizza.getString(6));
                 listaPizzas.add(pizza);
-            }while(cursorUsuarios.moveToNext());
+            }while(cursorPizza.moveToNext());
         }
 
-        cursorUsuarios.close();
+        cursorPizza.close();
 
 
 
