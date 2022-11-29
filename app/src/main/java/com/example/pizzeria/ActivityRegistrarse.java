@@ -16,8 +16,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 import Modelo.Servicio;
 import Modelo.Usuario;
 
@@ -38,9 +36,9 @@ public class ActivityRegistrarse extends AppCompatActivity implements View.OnCli
         textViewContraseña = findViewById(R.id.textViewContraseña);
         servicio = new Servicio(this);
         layoutDeAqui = findViewById(R.id.layout5);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.white){
+        if(ActivityColorFijo.colorFondo == android.R.color.white){
             btnRegistrar.setTextColor(Color.WHITE);
             btnRegistrar.setBackgroundColor(Color.rgb(200, 0, 0));
 
@@ -50,7 +48,7 @@ public class ActivityRegistrarse extends AppCompatActivity implements View.OnCli
             textViewUsuario.setTextColor(Color.BLACK);
             textViewContraseña.setTextColor(Color.BLACK);
 
-        }else if(ActivityAHeredar.colorFondo == android.R.color.black){
+        }else if(ActivityColorFijo.colorFondo == android.R.color.black){
             btnRegistrar.setTextColor(Color.WHITE);
             btnRegistrar.setBackgroundColor(Color.rgb(200, 0, 0));
 
@@ -86,7 +84,7 @@ public class ActivityRegistrarse extends AppCompatActivity implements View.OnCli
                 t.show();
 
                 boolean flag = false;
-                for(Usuario usuario: servicio.getServicioUsuario()){
+                for(Usuario usuario: servicio.getUsuarios()){
 
                     if(usuario.getUsuario().equals(textBoxUsuario.getText().toString()) && usuario.getContraseña().equals(textBoxContraseña.getText().toString())){
 

@@ -1,23 +1,18 @@
 package com.example.pizzeria;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import Modelo.AdaptadorBD;
 import Modelo.Servicio;
 import Modelo.Usuario;
 
@@ -41,11 +36,11 @@ public class ActivityInicioSesion extends AppCompatActivity implements View.OnCl
         textViewContraseña = findViewById(R.id.textViewInicioContraseña);
         tvIrRegistrarse = findViewById(R.id.tvIRregistrarse);
         layoutDeAqui = findViewById(R.id.layout4);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
 
 
-            if(ActivityAHeredar.colorFondo == android.R.color.white){
+            if(ActivityColorFijo.colorFondo == android.R.color.white){
 
                 textBoxInicioUsuario.setTextColor(Color.BLACK);
                 textBoxInicioContraseña.setTextColor(Color.BLACK);
@@ -55,7 +50,7 @@ public class ActivityInicioSesion extends AppCompatActivity implements View.OnCl
                 btnConfirmarInicio.setTextColor(Color.WHITE);
                 tvIrRegistrarse.setTextColor(Color.BLACK);
 
-            }else if(ActivityAHeredar.colorFondo == android.R.color.black){
+            }else if(ActivityColorFijo.colorFondo == android.R.color.black){
 
                 textBoxInicioUsuario.setTextColor(Color.WHITE);
                 textBoxInicioContraseña.setTextColor(Color.WHITE);
@@ -85,7 +80,7 @@ public class ActivityInicioSesion extends AppCompatActivity implements View.OnCl
 
         if(v.getId() == btnConfirmarInicio.getId() ){
             boolean flag = false;
-            for(Usuario usuario: servicio.getServicioUsuario()){
+            for(Usuario usuario: servicio.getUsuarios()){
 
                 if(usuario.getUsuario().equals(textBoxInicioUsuario.getText().toString()) && usuario.getContraseña().equals(textBoxInicioContraseña.getText().toString())){
 

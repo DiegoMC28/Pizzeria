@@ -1,7 +1,5 @@
 package com.example.pizzeria;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -35,13 +33,13 @@ public class ActivityFinalizarPedido extends AppCompatActivity implements View.O
         String texto = "";
         int precioTotal = 0;
         layoutDeAqui = findViewById(R.id.layout7);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.black){
+        if(ActivityColorFijo.colorFondo == android.R.color.black){
             textViewFinalizarPedido.setTextColor(Color.WHITE);
             btnConfirmarPedido.setBackgroundColor(Color.rgb(200, 0, 0));
             btnConfirmarPedido.setTextColor(Color.WHITE);
-        } else if(ActivityAHeredar.colorFondo == android.R.color.white) {
+        } else if(ActivityColorFijo.colorFondo == android.R.color.white) {
             textViewFinalizarPedido.setTextColor(Color.BLACK);
             btnConfirmarPedido.setBackgroundColor(Color.rgb(200, 0, 0));
             btnConfirmarPedido.setTextColor(Color.WHITE);

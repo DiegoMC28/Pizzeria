@@ -11,9 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Modelo.Servicio;
-import Modelo.Usuario;
-
 public class ActivityMenu extends AppCompatActivity implements View.OnClickListener  {
     Button btnRealizarPedido, btnAtras, btnConfiguracion, btnLLamar;
     TextView textoBienvenida, textoWeb;
@@ -37,9 +34,9 @@ public class ActivityMenu extends AppCompatActivity implements View.OnClickListe
         }
 
         layoutDeAqui = findViewById(R.id.layout3);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.white){
+        if(ActivityColorFijo.colorFondo == android.R.color.white){
             btnRealizarPedido.setTextColor(Color.WHITE);
             btnRealizarPedido.setBackgroundColor(Color.rgb(200, 0, 0));
             textoBienvenida.setTextColor(Color.BLACK);
@@ -50,7 +47,7 @@ public class ActivityMenu extends AppCompatActivity implements View.OnClickListe
             btnLLamar.setTextColor(Color.WHITE);
             btnLLamar.setBackgroundColor(Color.rgb(200, 0, 0));
             textoWeb.setTextColor(Color.BLACK);
-        }else if(ActivityAHeredar.colorFondo == android.R.color.black){
+        }else if(ActivityColorFijo.colorFondo == android.R.color.black){
             btnRealizarPedido.setTextColor(Color.WHITE);
             btnRealizarPedido.setBackgroundColor(Color.rgb(200, 0, 0));
             textoBienvenida.setTextColor(Color.WHITE);

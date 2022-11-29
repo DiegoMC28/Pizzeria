@@ -6,10 +6,8 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 
-public class ActivityAHeredar extends AppCompatActivity {
+public class ActivityColorFijo extends AppCompatActivity {
 public static int colorFondo = android.R.color.white;
 
     @Override

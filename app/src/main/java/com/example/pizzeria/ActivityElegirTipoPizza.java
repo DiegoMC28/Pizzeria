@@ -24,9 +24,9 @@ public class ActivityElegirTipoPizza extends AppCompatActivity implements View.O
         btnCreaPizza = findViewById(R.id.btnCreaPizza);
         servicio = new Servicio(this);
         layoutDeAqui = findViewById(R.id.layout8);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.black){
+        if(ActivityColorFijo.colorFondo == android.R.color.black){
 
             btnCreaPizza.setTextColor(Color.WHITE);
             btnCreaPizza.setBackgroundColor(Color.rgb(200, 0, 0));
@@ -37,7 +37,7 @@ public class ActivityElegirTipoPizza extends AppCompatActivity implements View.O
             btnRepetirUltimoPedido.setTextColor(Color.WHITE);
             btnRepetirUltimoPedido.setBackgroundColor(Color.rgb(200, 0, 0));
 
-        }else if(ActivityAHeredar.colorFondo == android.R.color.white){
+        }else if(ActivityColorFijo.colorFondo == android.R.color.white){
 
             btnCreaPizza.setTextColor(Color.WHITE);
             btnCreaPizza.setBackgroundColor(Color.rgb(200, 0, 0));

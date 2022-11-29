@@ -58,9 +58,9 @@ public class AcrivityPizzaPersonalizada extends AppCompatActivity implements Vie
         grupoRadioBtn = findViewById(R.id.radioGroup);
         servicio = new Servicio(this);
         layoutDeAqui = findViewById(R.id.layout9);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.black){
+        if(ActivityColorFijo.colorFondo == android.R.color.black){
             cbBacon.setTextColor(Color.WHITE);
             cbAtun.setTextColor(Color.WHITE);
             cbCebolla.setTextColor(Color.WHITE);
@@ -83,7 +83,7 @@ public class AcrivityPizzaPersonalizada extends AppCompatActivity implements Vie
             textViewElijeIngredientes.setTextColor(Color.WHITE);
             textViewEligeTamaño.setTextColor(Color.WHITE);
 
-        }else if(ActivityAHeredar.colorFondo == android.R.color.white){
+        }else if(ActivityColorFijo.colorFondo == android.R.color.white){
             cbBacon.setTextColor(Color.BLACK);
             cbAtun.setTextColor(Color.BLACK);
             cbCebolla.setTextColor(Color.BLACK);

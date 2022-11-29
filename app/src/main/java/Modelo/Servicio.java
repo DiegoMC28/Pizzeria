@@ -14,29 +14,30 @@ import DAOs.DAOPizza;
 import DAOs.DAOUsuario;
 
 public class Servicio {
-    private AdaptadorBD bbdd;
+    DAOPizza daoPizza;
+    DAOUsuario daoUsuario;
+    DAOPedidos daoPedidos;
+    HistorialInicioSesion historialInicioSesion;
 
     public Servicio(Context context) {
 
-
-        bbdd = new AdaptadorBD(context);
-        bbdd.registrarUsuario("diego", "123");
-
-        DAOPedidos.getInstance();
-        HistorialInicioSesion.getInstance();
+        daoPizza = DAOPizza.getInstance(context);
+        daoUsuario = DAOUsuario.getInstance(context);
+        daoPedidos = DAOPedidos.getInstance();
+        historialInicioSesion = HistorialInicioSesion.getInstance();
     }
 
 
     public ArrayList<ArrayList<Pizza>> getServicioPedido() {
-        return DAOPedidos.getInstance().getListaPedidos();
+        return daoPedidos.getListaPedidos();
     }
 
     public void setServicioPedido(ArrayList<ArrayList<Pizza>> servicioPedido) {
-        DAOPedidos.getInstance().setListaPedidos(servicioPedido);
+        daoPedidos.setListaPedidos(servicioPedido);
     }
 
     public ArrayList<Pizza> getServicioPizzas() {
-        return bbdd.obtenerPizzas();
+        return daoPizza.getPizzas();
     }
 
 
@@ -44,44 +45,44 @@ public class Servicio {
 
     public void añadirPedido( ArrayList<Pizza> array){
 
-         DAOPedidos.getInstance().añadirPedido(array);
+         daoPedidos.añadirPedido(array);
 
 
     }
-    public ArrayList<Usuario> getServicioUsuario() {
-        return bbdd.obtenerUsuarios();
+    public ArrayList<Usuario> getUsuarios() {
+        return daoUsuario.getListaUsuario();
     }
 
 
 
     public void añadirUsuario(Usuario usuario){
 
-        bbdd.registrarUsuario(usuario.getUsuario(), usuario.getContraseña());
+        daoUsuario.añadirUsuario(usuario);
 
     }
 
     public int obtenerUltimoIndice(){
 
-        return DAOPedidos.getInstance().getListaPedidos().size()-1;
+        return daoPedidos.getListaPedidos().size()-1;
     }
 
     public ArrayList<Usuario> getServicioHistorial() {
-        return HistorialInicioSesion.getInstance().getArrayHistorial();
+        return historialInicioSesion.getArrayHistorial();
     }
 
     public void setServicioHistorial(ArrayList<Usuario> servicioHistorial) {
-        HistorialInicioSesion.getInstance().setArrayHistorial(servicioHistorial);
+        historialInicioSesion.setArrayHistorial(servicioHistorial);
     }
 
     public void añadirAlHistorial(Usuario usuario){
 
-        HistorialInicioSesion.getInstance().añadirUsuario(usuario);
+        historialInicioSesion.añadirUsuario(usuario);
 
     }
 
     public Usuario obtenerUltimoUsuarioIniciado(){
 
-        return HistorialInicioSesion.getInstance().getArrayHistorial().get(HistorialInicioSesion.getInstance().getArrayHistorial().size()-1);
+        return historialInicioSesion.getArrayHistorial().get(historialInicioSesion.getArrayHistorial().size()-1);
 
 
     }

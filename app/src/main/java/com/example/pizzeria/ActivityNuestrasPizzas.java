@@ -62,9 +62,9 @@ public class ActivityNuestrasPizzas extends AppCompatActivity implements View.On
         grupoPizzas =  findViewById(R.id.GrupoPizzas);
         grupoTamaños = findViewById(R.id.GrupoTamaños);
         layoutDeAqui = findViewById(R.id.layout6);
-        ActivityAHeredar.cambiaColor(layoutDeAqui, this);
+        ActivityColorFijo.cambiaColor(layoutDeAqui, this);
 
-        if(ActivityAHeredar.colorFondo == android.R.color.black){
+        if(ActivityColorFijo.colorFondo == android.R.color.black){
 
             btnAñadirPizza.setTextColor(Color.WHITE);
             btnAñadirPizza.setBackgroundColor(Color.rgb(200, 0, 0));
@@ -87,7 +87,7 @@ public class ActivityNuestrasPizzas extends AppCompatActivity implements View.On
             tvTamaños.setTextColor(Color.WHITE);
             textViewIngrediente.setTextColor(Color.WHITE);
 
-        }else if (ActivityAHeredar.colorFondo == android.R.color.white){
+        }else if (ActivityColorFijo.colorFondo == android.R.color.white){
             btnAñadirPizza.setTextColor(Color.WHITE);
             btnAñadirPizza.setBackgroundColor(Color.rgb(200, 0, 0));
             btnFinalizarPedido.setTextColor(Color.WHITE);
@@ -276,7 +276,7 @@ public class ActivityNuestrasPizzas extends AppCompatActivity implements View.On
             arrayPizzasPedidas.add(servicio.getServicioPizzas().get(idPizza));
             arrayPizzasPedidas.get(arrayPizzasPedidas.size()-1).setTamaño(radioButtonGrande.getText().toString());
             grupoTamaños.clearCheck();
-        }else if(radioButtonFamiliar.isChecked()) {
+        }else if(radioButtonFamiliar.isChecked()){
             arrayPizzasPedidas.add(servicio.getServicioPizzas().get(idPizza));
             arrayPizzasPedidas.get(arrayPizzasPedidas.size()-1).setTamaño(radioButtonFamiliar.getText().toString());
             grupoTamaños.clearCheck();

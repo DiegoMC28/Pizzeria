@@ -68,7 +68,7 @@ public class AdaptadorBD extends SQLiteOpenHelper{
 
         return id;
     }
-    private long insertarPizza(String nombre, String ingrediente1, String ingrediente2, String ingrediente3, String ingrediente4, String tamaño){
+    public long insertarPizza(String nombre, String ingrediente1, String ingrediente2, String ingrediente3, String ingrediente4, String tamaño){
         long id = 0;
 
         try {
