@@ -16,12 +16,11 @@ import java.util.HashMap;
 public class AdaptadorBD extends SQLiteOpenHelper{
     private static final int VERSION=1;
     private static final String NOMBREBBDD = "BBDDPizzeria.db";
-    private Context context;
 
     public AdaptadorBD( Context context) {
     super(context, NOMBREBBDD, null, VERSION);
 
-        this.context = context;
+
     }
 
 
@@ -93,18 +92,11 @@ public class AdaptadorBD extends SQLiteOpenHelper{
 
     public ArrayList<Pizza> obtenerPizzas(){
 
-        AdaptadorBD adaptadorBD = new AdaptadorBD(context);
+
         SQLiteDatabase bbdd = this.getWritableDatabase();
         ArrayList<Pizza> listaPizzas = new ArrayList<Pizza>();
         Pizza pizza;
         Cursor cursorPizza = bbdd.rawQuery("Select * from Pizza",null);
-
-        insertarPizza("Queen BBQ", "Queso mozarella", "Salsa barbacoa", "Pollo", "Bacon", "");
-        insertarPizza("Italian Carbonara", "Queso mozarella", "Nata", "Bacon", "Champiñones", "");
-        insertarPizza("King Cheese", "Queso mozarella", "Queso de cabra", "Queso roquefort", "Queso gouda", "");
-        insertarPizza("Green Fit", "Queso mozarella", "Pimiento verde", "Cebolla", "Aceituna negra", "");
-        insertarPizza("Joseroni", "Queso mozarella", "Peperoni", "Carne picada", "Extra de queso", "");
-        insertarPizza("Red Devil", "Queso mozarella", "Pimiento chili", "Guindilla", "Pimiento Habanero", "");
 
         if(cursorPizza.moveToFirst()){
             do{
@@ -122,7 +114,7 @@ public class AdaptadorBD extends SQLiteOpenHelper{
 
     public ArrayList<Usuario> obtenerUsuarios(){
 
-        AdaptadorBD adaptadorBD = new AdaptadorBD(context);
+
         SQLiteDatabase bbdd = this.getWritableDatabase();
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         Usuario usuario;
